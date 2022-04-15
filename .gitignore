@@ -1,2 +1,5 @@
 # Ignore .asv's
 *.asv
+
+# Ignore Data Directory
+/data
