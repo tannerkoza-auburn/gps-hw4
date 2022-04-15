@@ -50,8 +50,8 @@ for i = 1:fSearchL
 %         ca = circshift(ca,j);
     end
 end
-figure
-surf(R1)
+% figure
+% surf(R1)
 
 for i = 1:fSearchL
     for j = 1:codeL
@@ -63,8 +63,35 @@ for i = 1:fSearchL
 %         ca = circshift(ca,j);
     end
 end
-figure
-surf(R2)
+% figure
+% surf(R2)
+
+% figure
+% surf(R1+R2)
+
+%% Plotting
+[X,Y] = meshgrid(1:codeL, 0:fBin:2*fLim);
 
 figure
-surf(R1+R2)
+surf(X,Y,R1)
+title('Correlation: Chunk 1')
+xlabel('Code Phase (Chips)')
+ylabel('Doppler (Hz)')
+zlabel('Correlation')
+xlim([0 codeL])
+
+figure
+surf(X,Y,R2)
+title('Correlation: Chunk 2')
+xlabel('Code Phase (Chips)')
+ylabel('Doppler (Hz)')
+zlabel('Correlation')
+xlim([0 codeL])
+
+figure
+surf(X,Y,R1+R2)
+title('Correlation: Stacked')
+xlabel('Code Phase (Chips)')
+ylabel('Doppler (Hz)')
+zlabel('Correlation')
+xlim([0 codeL])
